@@ -1,0 +1,23 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = SampleSmmModule
+  FILE_GUID                      = EB6317A2-DF39-43C9-A3E4-C36AF82D496D
+  MODULE_TYPE                    = MM_STANDALONE
+  ENTRY_POINT                    = SmmInitialize
+  UNLOAD_IMAGE                   = SmmUnload
+  PI_SPECIFICATION_VERSION       = 0x00010032
+
+[Sources]
+  main.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+  StandaloneMmDriverEntryPoint
+
+[Protocols]
+  gEfiMmCpuIoProtocolGuid
+
+[Depex]
+  TRUE

@@ -1,0 +1,32 @@
+[defines]
+  INF_VERSION = 0x00010005 
+  BASE_NAME = SmmLoader
+  FILE_GUID = 1B68BD50-BE1D-43F4-9571-9276A02DE8D0
+  MODULE_TYPE = DXE_SMM_DRIVER
+  ENTRY_POINT = UefiMain
+  PI_SPECIFICATION_VERSION = 0x00010032
+
+[Sources]
+  SmmLoader.cpp
+  SmmModulesManager.cpp
+  VirtualMemory.cpp
+  Mem.cpp
+  Alloc.cpp
+
+[Packages]
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+  MmServicesTableLib
+  DebugLib
+  CacheMaintenanceLib
+  PeCoffLib
+
+[Protocols]
+  gEfiSmmBase2ProtocolGuid
+  gEfiSmmCpuProtocolGuid
+
+[Depex]
+  gEfiSmmCpuProtocolGuid
